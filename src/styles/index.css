@@ -110,9 +110,29 @@ button {
   cursor: pointer;
 }
 
-img, svg {
+img, svg, picture, canvas {
   display: block;
   max-width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Hardware accelerated anti-flicker rules for floating images & Framer Motion elements */
+.floating-motif,
+.floating-motif-reverse,
+.events-main-slider img,
+.theme-page-events img,
+.theme-page-home img,
+.theme-page-gallery img,
+.theme-page-family img,
+.chassis-screen-body img {
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
 }
 
 /* ==========================================================================

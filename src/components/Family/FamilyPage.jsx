@@ -75,12 +75,14 @@ export function FamilyPage({ data, onBack, onNavigateIndex, pageHeight }) {
               ? { opacity: 0, scale: 0.8, x: -16, y: -16, transition: { duration: 0.45, ease: [0.32, 0, 0.67, 0] } }
               : { opacity: 0.9, scale: 1, x: 0, y: 0, transition: { duration: 1.5, delay: 0.18, ease: [0.16, 1, 0.3, 1] } }
           }
-          style={{ width: "min(135px, 28vw)" }}
+          style={{ width: "min(135px, 28vw)", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
         >
           <img
             src="/assets/flower_clean.png"
             alt="Botanical Flower Ornament Top Left"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            loading="eager"
+            decoding="async"
+            style={{ width: "100%", height: "auto", display: "block", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
             draggable="false"
           />
         </motion.div>
@@ -106,12 +108,14 @@ export function FamilyPage({ data, onBack, onNavigateIndex, pageHeight }) {
               ? { opacity: 0, scale: 0.8, x: 16, y: 16, transition: { duration: 0.45, ease: [0.32, 0, 0.67, 0] } }
               : { opacity: 0.9, scale: 1, x: 0, y: 0, transition: { duration: 1.5, delay: 0.22, ease: [0.16, 1, 0.3, 1] } }
           }
-          style={{ width: "min(140px, 30vw)" }}
+          style={{ width: "min(140px, 30vw)", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
         >
           <img
             src="/assets/flower_clean.png"
             alt="Botanical Red Blossom Bottom Right"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            loading="eager"
+            decoding="async"
+            style={{ width: "100%", height: "auto", display: "block", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
             draggable="false"
           />
         </motion.div>

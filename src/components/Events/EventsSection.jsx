@@ -231,12 +231,14 @@ export function EventsSection({ data, onBack, onNavigateIndex, pageHeight }) {
           initial={{ opacity: 0, scale: 0.88, y: -25 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.65, ease: luxuryEase, delay: 0.02 }}
-          style={{ width: "340px" }}
+          style={{ width: "340px", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
         >
           <img
             src="/assets/pearl_clean.png"
             alt="Royal Pearl Arch"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            loading="eager"
+            decoding="async"
+            style={{ width: "100%", height: "auto", display: "block", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
             draggable="false"
           />
         </motion.div>
@@ -259,84 +261,82 @@ export function EventsSection({ data, onBack, onNavigateIndex, pageHeight }) {
           initial={{ opacity: 0, scale: 0.88, x: 25, y: 25 }}
           animate={{ opacity: 0.9, scale: 1, x: 0, y: 0 }}
           transition={{ duration: 0.65, ease: luxuryEase, delay: 0.04 }}
-          style={{ width: "230px" }}
+          style={{ width: "230px", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
         >
           <img
             src="/assets/pearl_clean.png"
             alt="Royal Pearl Garland"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            loading="eager"
+            decoding="async"
+            style={{ width: "100%", height: "auto", display: "block", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
             draggable="false"
           />
         </motion.div>
       </div>
 
       {/* ====================================================================
-          CORNER BOTANICAL FLOWERS (SEPARATED & DYNAMICALLY ANIMATED)
+          CORNER BOTANICAL FLOWERS (PERSISTENT & SMOOTH - ZERO FLICKER)
           ==================================================================== */}
       {/* Bottom-Left Red Botanical Blossom (Enlarged) */}
-      <AnimatePresence mode="wait">
-        <div
-          key={`flower-bl-${currentEvent.id}`}
-          style={{
-            position: "absolute",
-            bottom: "-125px",
-            left: "-135px",
-            transform: "rotate(20deg)",
-            transformOrigin: "bottom left",
-            pointerEvents: "none",
-            zIndex: 8,
-            userSelect: "none",
-          }}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "-125px",
+          left: "-135px",
+          transform: "rotate(20deg)",
+          transformOrigin: "bottom left",
+          pointerEvents: "none",
+          zIndex: 8,
+          userSelect: "none",
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.78, x: -25, y: 25 }}
+          animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.55, ease: luxuryEase, delay: 0.05 }}
+          style={{ width: "215px", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.78, x: -25, y: 25 }}
-            animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, x: -15, y: 15 }}
-            transition={{ duration: 0.45, ease: luxuryEase }}
-            style={{ width: "215px" }} // Enlarged botanical blossom
-          >
-            <img
-              src="/assets/flower_clean.png"
-              alt="Botanical Red Floral Ornament"
-              style={{ width: "100%", height: "auto", display: "block" }}
-              draggable="false"
-            />
-          </motion.div>
-        </div>
-      </AnimatePresence>
+          <img
+            src="/assets/flower_clean.png"
+            alt="Botanical Red Floral Ornament"
+            loading="eager"
+            decoding="async"
+            style={{ width: "100%", height: "auto", display: "block", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
+            draggable="false"
+          />
+        </motion.div>
+      </div>
 
       {/* Top-Right Red Accent Stem (Enlarged & Positioned safely outside text column) */}
-      <AnimatePresence mode="wait">
-        <div
-          key={`flower-tr-${currentEvent.id}`}
-          style={{
-            position: "absolute",
-            top: "-52px",
-            right: "-62px",
-            transform: "rotate(340deg)",
-            transformOrigin: "center center",
-            pointerEvents: "none",
-            zIndex: 8,
-            userSelect: "none",
-            opacity: 0.85,
-          }}
+      <div
+        style={{
+          position: "absolute",
+          top: "-52px",
+          right: "-62px",
+          transform: "rotate(340deg)",
+          transformOrigin: "center center",
+          pointerEvents: "none",
+          zIndex: 8,
+          userSelect: "none",
+          opacity: 0.85,
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.78, x: 20, y: -20 }}
+          animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.55, ease: luxuryEase, delay: 0.05 }}
+          style={{ width: "165px", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.78, x: 20, y: -20 }}
-            animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, x: 15, y: -15 }}
-            transition={{ duration: 0.45, ease: luxuryEase }}
-            style={{ width: "165px" }} // Enlarged botanical blossom
-          >
-            <img
-              src="/assets/flower_clean.png"
-              alt="Botanical Red Floral Ornament"
-              style={{ width: "100%", height: "auto", display: "block" }}
-              draggable="false"
-            />
-          </motion.div>
-        </div>
-      </AnimatePresence>
+          <img
+            src="/assets/flower_clean.png"
+            alt="Botanical Red Floral Ornament"
+            loading="eager"
+            decoding="async"
+            style={{ width: "100%", height: "auto", display: "block", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
+            draggable="false"
+          />
+        </motion.div>
+      </div>
 
       {/* ====================================================================
           MAIN SLIDING EVENTS CONTAINER (SLIGHTLY LOWERED POSITION)
@@ -413,6 +413,7 @@ export function EventsSection({ data, onBack, onNavigateIndex, pageHeight }) {
                     <motion.div
                       animate={{ y: [0, -6, 0] }}
                       transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+                      style={{ transform: "translateZ(0)", backfaceVisibility: "hidden", willChange: "transform" }}
                     >
                       <img
                         src={currentEvent.motif}
@@ -422,11 +423,15 @@ export function EventsSection({ data, onBack, onNavigateIndex, pageHeight }) {
                           }
                         }}
                         alt={currentEvent.motifAlt}
+                        loading="eager"
+                        decoding="async"
                         style={{
                           width: "100%",
                           height: "auto",
                           display: "block",
                           filter: "drop-shadow(0 12px 22px rgba(128, 27, 38, 0.22))",
+                          transform: "translateZ(0)",
+                          backfaceVisibility: "hidden",
                         }}
                         draggable="false"
                       />
@@ -769,6 +774,7 @@ export function EventsSection({ data, onBack, onNavigateIndex, pageHeight }) {
                     <motion.div
                       animate={{ y: [0, -6, 0] }}
                       transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+                      style={{ transform: "translateZ(0)", backfaceVisibility: "hidden", willChange: "transform" }}
                     >
                       <img
                         src={currentEvent.motif}
@@ -778,11 +784,15 @@ export function EventsSection({ data, onBack, onNavigateIndex, pageHeight }) {
                           }
                         }}
                         alt={currentEvent.motifAlt}
+                        loading="eager"
+                        decoding="async"
                         style={{
                           width: "100%",
                           height: "auto",
                           display: "block",
                           filter: "drop-shadow(0 12px 22px rgba(128, 27, 38, 0.22))",
+                          transform: "translateZ(0)",
+                          backfaceVisibility: "hidden",
                         }}
                         draggable="false"
                       />
@@ -884,11 +894,15 @@ export function EventsSection({ data, onBack, onNavigateIndex, pageHeight }) {
                           }
                         }}
                         alt={currentEvent.motifAlt}
+                        loading="eager"
+                        decoding="async"
                         style={{
                           width: "100%",
                           height: "auto",
                           display: "block",
                           filter: "drop-shadow(0 12px 24px rgba(128, 27, 38, 0.24))",
+                          transform: "translateZ(0)",
+                          backfaceVisibility: "hidden",
                         }}
                         draggable="false"
                       />
@@ -1067,6 +1081,7 @@ export function EventsSection({ data, onBack, onNavigateIndex, pageHeight }) {
                     <motion.div
                       animate={{ y: [0, -6, 0] }}
                       transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+                      style={{ transform: "translateZ(0)", backfaceVisibility: "hidden", willChange: "transform" }}
                     >
                       <img
                         src={currentEvent.motif}
@@ -1076,11 +1091,15 @@ export function EventsSection({ data, onBack, onNavigateIndex, pageHeight }) {
                           }
                         }}
                         alt={currentEvent.motifAlt}
+                        loading="eager"
+                        decoding="async"
                         style={{
                           width: "100%",
                           height: "auto",
                           display: "block",
                           filter: "drop-shadow(0 12px 22px rgba(128, 27, 38, 0.22))",
+                          transform: "translateZ(0)",
+                          backfaceVisibility: "hidden",
                         }}
                         draggable="false"
                       />
@@ -1255,6 +1274,7 @@ export function EventsSection({ data, onBack, onNavigateIndex, pageHeight }) {
                 <motion.div
                   animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
+                  style={{ transform: "translateZ(0)", backfaceVisibility: "hidden", willChange: "transform" }}
                 >
                   <img
                     src={currentEvent.secondaryMotif}
@@ -1264,11 +1284,15 @@ export function EventsSection({ data, onBack, onNavigateIndex, pageHeight }) {
                       }
                     }}
                     alt="Bridal Nath Nose Ring"
+                    loading="eager"
+                    decoding="async"
                     style={{
                       width: "100%",
                       height: "auto",
                       display: "block",
                       filter: "drop-shadow(0 12px 22px rgba(128, 27, 38, 0.22))",
+                      transform: "translateZ(0)",
+                      backfaceVisibility: "hidden",
                     }}
                     draggable="false"
                   />

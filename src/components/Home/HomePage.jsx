@@ -70,14 +70,16 @@ export function HomePage({ data, pageHeight }) {
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: -30 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-          style={{ width: "340px" }}
+          style={{ width: "340px", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
         >
           <img
             src="/assets/pearl_clean.png"
             alt="Royal Pearl Arch"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            loading="eager"
+            decoding="async"
+            style={{ width: "100%", height: "auto", display: "block", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
             draggable="false"
           />
         </motion.div>
@@ -99,14 +101,16 @@ export function HomePage({ data, pageHeight }) {
         <motion.div
           initial={{ opacity: 0, scale: 0.8, x: 30, y: -30 }}
           whileInView={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-          viewport={{ once: false, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          style={{ width: "165px" }}
+          style={{ width: "165px", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
         >
           <img
             src="/assets/flower_clean.png"
             alt="Botanical Flower Ornament"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            loading="eager"
+            decoding="async"
+            style={{ width: "100%", height: "auto", display: "block", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
             draggable="false"
           />
         </motion.div>
@@ -128,14 +132,16 @@ export function HomePage({ data, pageHeight }) {
         <motion.div
           initial={{ opacity: 0, scale: 0.75, x: -35, y: 35 }}
           whileInView={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-          viewport={{ once: false, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
-          style={{ width: "200px" }}
+          style={{ width: "200px", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
         >
           <img
             src="/assets/flower_clean.png"
             alt="Botanical Red Blossom"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            loading="eager"
+            decoding="async"
+            style={{ width: "100%", height: "auto", display: "block", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
             draggable="false"
           />
         </motion.div>
@@ -157,14 +163,16 @@ export function HomePage({ data, pageHeight }) {
         <motion.div
           initial={{ opacity: 0, scale: 0.8, x: 30, y: 30 }}
           whileInView={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-          viewport={{ once: false, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-          style={{ width: "220px" }}
+          style={{ width: "220px", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
         >
           <img
             src="/assets/pearl_clean.png"
             alt="Royal Pearl String"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            loading="eager"
+            decoding="async"
+            style={{ width: "100%", height: "auto", display: "block", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
             draggable="false"
           />
         </motion.div>
@@ -186,14 +194,16 @@ export function HomePage({ data, pageHeight }) {
         <motion.div
           initial={{ opacity: 0, scale: 0.75, x: 25, y: 25 }}
           whileInView={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-          viewport={{ once: false, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
-          style={{ width: "125px" }}
+          style={{ width: "125px", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
         >
           <img
             src="/assets/flower_clean.png"
             alt="Botanical Red Blossom Corner"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            loading="eager"
+            decoding="async"
+            style={{ width: "100%", height: "auto", display: "block", transform: "translateZ(0)", backfaceVisibility: "hidden" }}
             draggable="false"
           />
         </motion.div>
