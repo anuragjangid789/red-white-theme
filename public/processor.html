@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+async function processAll() {
+  const images = ["mayra png.webp","haldi png.webp","sangeet png.webp","wedding png.webp","wedding png 2.webp","red flower.webp","pearl png.webp"];
+  for (const imgName of images) {
+    await new Promise((resolve) => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imgData.data;
+
+        // Flood-fill or color distance from top-left/corners background color
+        // Check corner pixels
+        const cornerR = data[0], cornerG = data[1], cornerB = data[2];
+        const isWhiteBg = (cornerR > 230 && cornerG > 230 && cornerB > 230);
+
+        for (let i = 0; i < data.length; i += 4) {
+          const r = data[i], g = data[i+1], b = data[i+2], a = data[i+3];
+          if (a === 0) continue;
+          
+          // If pixel is close to pure white/light grey background
+          const brightness = (r + g + b) / 3;
+          const diff = Math.max(Math.abs(r - g), Math.abs(g - b), Math.abs(r - b));
+          
+          // If light grey/white background
+          if (brightness > 248 && diff < 8) {
+            data[i+3] = 0; // completely transparent
+          } else if (brightness > 238 && diff < 12) {
+            // Smooth feathering
+            const alphaFactor = (248 - brightness) / 10;
+            data[i+3] = Math.floor(a * Math.max(0, Math.min(1, alphaFactor)));
+          }
+        }
+
+        ctx.putImageData(imgData, 0, 0);
+        const outName = imgName.replace('.webp', '.png').replace(' png', '_transparent');
+        const dataUrl = canvas.toDataURL('image/png');
+
+        fetch('http://localhost:8898/save', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ name: outName, data: dataUrl })
+        }).then(() => resolve());
+      };
+      img.src = '/assets/' + encodeURIComponent(imgName);
+    });
+  }
+
+  fetch('http://localhost:8898/done', { method: 'POST' });
+}
+
+window.onload = processAll;
+</script>
+</body>
+</html>

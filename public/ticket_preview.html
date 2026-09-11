@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Ticket Collage Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #181418;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .card-container {
+    width: 380px;
+    height: 780px;
+    background-color: #E6E5DE;
+    background-image: url(/assets/background.webp);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    border-radius: 44px;
+    border: 3.5px solid #000;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Ticket Base Styling */
+  .ticket {
+    position: relative;
+    background: #FDFBF7;
+    border: 1px solid rgba(197, 160, 89, 0.45);
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(26, 54, 54, 0.06), 0 1px 2px rgba(128, 27, 38, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+  }
+  .ticket:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(128, 27, 38, 0.12), 0 0 0 1px rgba(197, 160, 89, 0.7);
+  }
+  
+  /* Ticket Punch Cutouts (Side Notches) */
+  .notch-l, .notch-r {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #E6E5DE; /* Matches paper background */
+    border-radius: 50%;
+    z-index: 5;
+    border: 1px solid rgba(197, 160, 89, 0.45);
+  }
+  .notch-l { left: -6px; top: 50%; transform: translateY(-50%); }
+  .notch-r { right: -6px; top: 50%; transform: translateY(-50%); }
+  
+  /* Perforated Divider */
+  .perforation-v {
+    width: 1px;
+    border-left: 1.5px dashed rgba(197, 160, 89, 0.5);
+    margin: 4px 0;
+    position: relative;
+  }
+  .perforation-h {
+    height: 1px;
+    border-top: 1.5px dashed rgba(197, 160, 89, 0.5);
+    margin: 0 4px;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Collage Grid Layout */
+  .collage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .col-span-2 { grid-column: span 2; }
+  .row-span-2 { grid-row: span 2; }
+
+</style>
+</head>
+<body>
+
+<div class="card-container">
+  <!-- Header -->
+  <div style="text-align: center; margin-top: 10px;">
+    <div style="font-size: 9px; letter-spacing: 0.22em; color: #801B26; text-transform: uppercase; font-weight: 600;">
+      INVITATION INDEX
+    </div>
+    <h2 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; color: #1A3636; font-weight: 600; margin: 2px 0;">
+      Chapters of Celebration
+    </h2>
+    <div style="font-size: 8px; letter-spacing: 0.18em; color: #801B26; text-transform: uppercase;">
+      TAP ANY TICKET PASS TO ENTER
+    </div>
+  </div>
+
+  <!-- Ticket Collage Grid -->
+  <div class="collage-grid">
+    
+    <!-- TICKET 1: THE COUPLE (Wide Boarding Pass - Span 2) -->
+    <div class="ticket col-span-2" style="height: 74px; align-items: stretch;">
+      <div class="notch-l"></div>
+      <div class="notch-r"></div>
+      
+      <!-- Left Stub -->
+      <div style="width: 70px; background: rgba(128, 27, 38, 0.05); padding: 6px 4px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;">
+        <span style="font-size: 7px; letter-spacing: 0.15em; color: #801B26; font-weight: 700; text-transform: uppercase;">ROYAL PASS</span>
+        <span style="font-family: 'Cinzel', serif; font-size: 14px; font-weight: 700; color: #801B26; line-height: 1;">01</span>
+        <div style="display: flex; gap: 1.5px; height: 12px; align-items: flex-end;">
+          <span style="width: 1.5px; height: 100%; background: #C5A059;"></span>
+          <span style="width: 2.5px; height: 80%; background: #C5A059;"></span>
+          <span style="width: 1px; height: 100%; background: #C5A059;"></span>
+          <span style="width: 2px; height: 90%; background: #C5A059;"></span>
+          <span style="width: 1.5px; height: 100%; background: #C5A059;"></span>
+        </div>
+      </div>
+      
+      <div class="perforation-v"></div>
+      
+      <!-- Main Ticket Body -->
+      <div style="flex: 1; padding: 6px 12px; display: flex; flex-direction: column; justify-content: center; position: relative;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 7.5px; letter-spacing: 0.18em; color: #C5A059; text-transform: uppercase; font-weight: 600;">CHAPTER 01 • UNION</span>
+          <span style="font-size: 7px; background: #801B26; color: #fff; padding: 1px 5px; border-radius: 2px; letter-spacing: 0.1em; font-weight: 600;">ADMIT</span>
+        </div>
+        <div style="font-family: 'Pinyon Script', cursive; font-size: 21px; color: #801B26; line-height: 1.1; margin: 1px 0;">
+          Arusha &amp; Akshit
+        </div>
+        <div style="font-size: 8px; color: #1A3636; letter-spacing: 0.05em; opacity: 0.85;">
+          The Couple • Two journeys converging
+        </div>
+      </div>
+    </div>
+
+    <!-- TICKET 2: SAVE THE DATE (Tall Vertical Pass - Row Span 2) -->
+    <div class="ticket row-span-2" style="height: 130px; flex-direction: column; justify-content: space-between; padding: 8px; position: relative;">
+      <div class="notch-l" style="top: 35%;"></div>
+      <div class="notch-r" style="top: 35%;"></div>
+      
+      <!-- Top Stub -->
+      <div style="text-align: center; border-bottom: 1.5px dashed rgba(197, 160, 89, 0.45); padding-bottom: 6px;">
+        <span style="font-size: 7px; letter-spacing: 0.2em; color: #C5A059; font-weight: 700; text-transform: uppercase;">PASS #02</span>
+        <div style="font-family: 'Cinzel', serif; font-size: 15px; font-weight: 700; color: #801B26; line-height: 1.1; margin-top: 2px;">
+          28 NOV
+        </div>
+        <div style="font-size: 7px; letter-spacing: 0.15em; color: #1A3636;">2026</div>
+      </div>
+      
+      <!-- Bottom Main Body -->
+      <div style="text-align: center; padding-top: 4px; display: flex; flex-direction: column; justify-content: center; flex: 1;">
+        <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 13px; font-weight: 700; color: #1A3636; line-height: 1.15;">
+          Save The Date
+        </div>
+        <div style="font-size: 7.5px; color: #801B26; margin: 3px 0; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;">
+          COUNTDOWN
+        </div>
+        <div style="font-size: 7px; color: #7A7672; line-height: 1.2;">
+          Royal Udaipur Soiree
+        </div>
+      </div>
+      
+      <div style="border-top: 1px solid rgba(197, 160, 89, 0.25); padding-top: 3px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 6.5px; color: #C5A059; letter-spacing: 0.1em;">NO. 02</span>
+        <span style="font-size: 8px; color: #801B26;">→</span>
+      </div>
+    </div>
+
+    <!-- TICKET 3: OUR STORY (Compact Horizontal Pass) -->
+    <div class="ticket" style="height: 61px; align-items: center; padding: 6px 8px; position: relative;">
+      <div class="notch-l"></div>
+      <div class="notch-r"></div>
+      <div style="width: 22px; text-align: center; border-right: 1.5px dashed rgba(197, 160, 89, 0.45); padding-right: 4px; margin-right: 6px;">
+        <span style="font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: #801B26;">03</span>
+      </div>
+      <div style="flex: 1;">
+        <span style="font-size: 6.5px; letter-spacing: 0.15em; color: #C5A059; text-transform: uppercase; font-weight: 600;">MEMOIR</span>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 12px; font-weight: 700; color: #1A3636; line-height: 1.1;">
+          Our Story
+        </div>
+        <div style="font-size: 7px; color: #801B26; opacity: 0.85;">Tapestry of Moments</div>
+      </div>
+    </div>
+
+    <!-- TICKET 4: THE CELEBRATIONS (Festive Pass) -->
+    <div class="ticket" style="height: 61px; align-items: center; padding: 6px 8px; position: relative;">
+      <div class="notch-l"></div>
+      <div class="notch-r"></div>
+      <div style="width: 22px; text-align: center; border-right: 1.5px dashed rgba(197, 160, 89, 0.45); padding-right: 4px; margin-right: 6px;">
+        <span style="font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: #801B26;">04</span>
+      </div>
+      <div style="flex: 1;">
+        <span style="font-size: 6.5px; letter-spacing: 0.15em; color: #C5A059; text-transform: uppercase; font-weight: 600;">FESTIVITIES</span>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 12px; font-weight: 700; color: #1A3636; line-height: 1.1;">
+          Celebrations
+        </div>
+        <div style="font-size: 7px; color: #801B26; opacity: 0.85;">5 Royal Events</div>
+      </div>
+    </div>
+
+    <!-- TICKET 5: THE VENUE (Palace Pass) -->
+    <div class="ticket" style="height: 66px; align-items: center; padding: 6px 8px; position: relative;">
+      <div class="notch-l"></div>
+      <div class="notch-r"></div>
+      <div style="width: 22px; text-align: center; border-right: 1.5px dashed rgba(197, 160, 89, 0.45); padding-right: 4px; margin-right: 6px;">
+        <span style="font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: #801B26;">05</span>
+      </div>
+      <div style="flex: 1;">
+        <span style="font-size: 6.5px; letter-spacing: 0.15em; color: #C5A059; text-transform: uppercase; font-weight: 600;">PALACE GROUNDS</span>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 12px; font-weight: 700; color: #1A3636; line-height: 1.1;">
+          The Venue
+        </div>
+        <div style="font-size: 7px; color: #801B26; opacity: 0.85;">The Oberoi Udaivilas</div>
+      </div>
+    </div>
+
+    <!-- TICKET 6: THE GALLERY (Memories Pass) -->
+    <div class="ticket" style="height: 66px; align-items: center; padding: 6px 8px; position: relative;">
+      <div class="notch-l"></div>
+      <div class="notch-r"></div>
+      <div style="width: 22px; text-align: center; border-right: 1.5px dashed rgba(197, 160, 89, 0.45); padding-right: 4px; margin-right: 6px;">
+        <span style="font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: #801B26;">06</span>
+      </div>
+      <div style="flex: 1;">
+        <span style="font-size: 6.5px; letter-spacing: 0.15em; color: #C5A059; text-transform: uppercase; font-weight: 600;">CHRONICLE</span>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 12px; font-weight: 700; color: #1A3636; line-height: 1.1;">
+          The Gallery
+        </div>
+        <div style="font-size: 7px; color: #801B26; opacity: 0.85;">Moments in Stillness</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Divider -->
+  <div style="text-align: center; margin-bottom: 8px;">
+    <svg width="120" height="12" viewBox="0 0 120 12" fill="none" style="margin: auto;">
+      <path d="M0 6h45m30 0h45M48 6a12 12 0 0112-6 12 12 0 0112 6 12 12 0 01-12 6 12 12 0 01-12-6z" stroke="#C5A059" stroke-width="1"/>
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>
